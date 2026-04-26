@@ -1,0 +1,19 @@
+--------------------------------------------------------------------------------------------------------------
+The password for the next level can be retrieved by submitting the password of the current level 
+to port 30001 on localhost using SSL/TLS encryption.
+--------------------------------------------------------------------------------------------------------------
+
+
+sshpass -f "sshpass" ssh bandit15@bandit.labs.overthewire.org -p 2220
+
+cat /etc/bandit_pass/bandit15
+
+>> 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+
+echo "8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo" | openssl s_client -connect localhost:30001
+
+# we have to add the '-ing_eof' to the command to (ignore End of File) and get the password
+
+echo "8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo" | openssl s_client -connect localhost:30001 -ign_eof
+
+>> kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
