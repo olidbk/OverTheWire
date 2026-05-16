@@ -14,9 +14,11 @@ ls -lah
 
 ./suconnect
 
->> Usage: ./suconnect <portnumber>
->> This program will connect to the given port on localhost using TCP. 
->> If it receives the correct password from the other side, the next password is transmitted back.
+>> ---
+Usage: ./suconnect <portnumber>
+This program will connect to the given port on localhost using TCP. 
+If it receives the correct password from the other side, the next password is transmitted back.
+>> ---
 
 # here we need to use netcat to creat a listening server, to receive the password from the script
 
