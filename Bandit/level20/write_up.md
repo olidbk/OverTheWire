@@ -20,10 +20,13 @@ ls -lah
 
 # here we need to use netcat to creat a listening server, to receive the password from the script
 
-echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l 1234
+# we use '&' to make the process run in the background, so we can run another commands
+
+echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l 1234 &
 
 ./suconnect 1234
 
 >> Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 >> Password matches, sending next password
+
 >> EeoULMCra2q0dSkYj561DX7s1CpBuOBt

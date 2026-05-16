@@ -11,7 +11,7 @@ sshpass -f "sshpass" ssh bandit19@bandit.labs.overthewire.org -p 2220
 
 ls -lah
 
-# we see that the file is a setuid file, that's means we can have root privilege when we use the script
+# we see that the file is a setuid file, that's means we can act as another user when we run the script
 
 ./bandit20-do whoami
 
