@@ -60,6 +60,7 @@ nano /var/spool/bandit24/foo/bash_script.sh
 #!/bin/bash
 
 cat /etc/bandit_pass/bandit24 > /tmp/my_temp/password.txt
+chmod 777 /tmp/my_temp/password.txt
 
 ---
 
