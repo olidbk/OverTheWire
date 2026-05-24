@@ -11,6 +11,8 @@ NOTE 2: Keep in mind that your shell script is removed once executed, so you may
 -----------------------------------------------------------------------------------------------------------------
 
 
+sshpass -f "sshpass" ssh bandit23@bandit.labs.overthewire.org -p 2220
+
 cd /etc/cron.d/
 
 cat cronjob_bandit24
