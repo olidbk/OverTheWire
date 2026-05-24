@@ -1,15 +1,23 @@
---------------------------------------------------------------------------------------------------------------
-"
-The password for the next level is stored in a hidden file in the inhere directory.
-"
---------------------------------------------------------------------------------------------------------------
+# Bandit Level 3
 
-sshpass -f "sshpass" ssh bandit3@bandit.labs.overthewire.org -p 2220
+> The password for the next level is stored in a hidden file in the **inhere** directory.
 
+## Solution
+
+```shell
+sshpass -f "ssh_pass" ssh bandit3@bandit.labs.overthewire.org -p 2220
+```
+
+```shell
 cd inhere
-
 ls -a
+```
 
+```shell
 cat ./...Hiding-From-You
+```
 
->> 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+```text
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+```
+

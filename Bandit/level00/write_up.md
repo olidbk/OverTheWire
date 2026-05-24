@@ -5,12 +5,15 @@
 ## Solution
 
 **you can use 'sshpass' instead of 'ssh' and save the password level in a file**
+
 ```shell
 sshpass -f "ssh_pass" ssh bandit0@bandit.labs.overthewire.org -p 2220
+```
+
+```shell
 cat readme
 ```
 
-output:
 ```text
 ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 ```
