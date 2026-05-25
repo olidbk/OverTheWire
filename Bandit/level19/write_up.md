@@ -16,8 +16,11 @@ ls -lah
 
 ```shell
 ./bandit20-do whoami
-bandit20
+
+	bandit20
 ```
+
+when we run the script we act like user 'bandit20' so let's read the password for the next level
 
 ```shell
 ./bandit20-do cat /etc/bandit_pass/bandit20

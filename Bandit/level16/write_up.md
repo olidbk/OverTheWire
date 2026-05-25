@@ -18,7 +18,8 @@ kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
 
 ```shell
 nmap -sV -p31000-32000 localhost
-31790/tcp open  ssl/unknown
+
+	31790/tcp open  ssl/unknown
 ```
 
 ```shell

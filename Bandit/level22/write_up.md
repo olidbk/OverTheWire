@@ -11,9 +11,6 @@ sshpass -f "ssh_pass" ssh bandit22@bandit.labs.overthewire.org -p 2220
 
 ```shell
 cd /etc/cron.d/
-```
-
-```shell
 ls -la
 cat cronjob_bandit23
 ```

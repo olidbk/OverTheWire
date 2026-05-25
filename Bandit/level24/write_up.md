@@ -18,7 +18,7 @@ nc localhost 30002
 ```text
 I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
 
-gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 0000
+	gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 0000
 
 Wrong! Please enter the correct current password and pincode. Try again.
 ```
@@ -43,7 +43,15 @@ done
 
 ```shell
 chmod +x /tmp/my_temp/brute_bash.sh
+```
+
+**then you have to send the result of the script to a text file**
+
+```shell
 /tmp/my_temp/brute_bash.sh > /tmp/my_temp/dict_brute.txt
+```
+
+```shell
 nc localhost 30002 < /tmp/my_temp/dict_brute.txt | grep -v "Wrong!"
 ```
 

@@ -10,7 +10,7 @@
 sshpass -f "ssh_pass" ssh bandit13@bandit.labs.overthewire.org -p 2220
 ```
 
-**first copy the sshkey_privet file from bandit13 to your local machine using 'scp' (secure copy). you need to use the 'scp' command in your local machin **
+**first copy the sshkey_privet file from bandit13 to your local machine using 'scp' (secure copy). you need to use the 'scp' command in your local machin**
 
 ```shell
 scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
