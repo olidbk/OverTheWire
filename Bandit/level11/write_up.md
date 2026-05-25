@@ -1,13 +1,18 @@
---------------------------------------------------------------------------------------------------------------
-"
-The password for the next level is stored in the file data.txt, 
-where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
-"
---------------------------------------------------------------------------------------------------------------
+# Bandit Level 11
 
+> The password for the next level is stored in the file **data.txt**, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
 
-sshpass -f "sshpass" ssh bandit11@bandit.labs.overthewire.org -p 2220
+## Solution
 
+```shell
+sshpass -f "ssh_pass" ssh bandit11@bandit.labs.overthewire.org -p 2220
+```
+
+```shell
 cat data.txt | tr "A-Za-z" "N-ZA-Mn-za-m"
+```
 
->> 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+```text
+7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+```
+

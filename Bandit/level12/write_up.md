@@ -11,11 +11,14 @@ sshpass -f "ssh_pass" ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```shell
 mktemp -d
 cd /tmp/tmp.Jw3XQ1hx0S
+cp ~/data.txt .
 ```
 
 ```shell
 xxd -r data.txt > data2.txt
 ```
+
+**we need to use the command 'file' to know what is the tipe of the file then change his extension**
 
 ```shell
 file data2.txt
@@ -24,52 +27,55 @@ gunzip data2.gz
 ```
 
 ```shell
-file data2
-mv data2 data2.bz
-bunzip2 data2.bz
+file data3
+mv data3 data3.bz
+bunzip2 data3.bz
 ```
 
 ```shell
-file data2
-mv data2 data2.gz
-gunzip data2.gz
+file data4
+mv data4 data4.gz
+gunzip data4.gz
 ```
 
 ```shell
-file data2
-mv data2 data2.tar
-tar -xvf data2.tar
-```
-
-```shell
-file data5.bin
-mv data5.bin data5.tar
+file data5
+mv data5 data5.tar
 tar -xvf data5.tar
 ```
 
 ```shell
 file data6.bin
-mv data6.bin data6.bz
-bunzip2 data6.bz
-```
-
-```shell
-file data6
-mv data6 data6.tar
+mv data6.bin data6.tar
 tar -xvf data6.tar
 ```
 
 ```shell
-file data8.bin
-mv data8.bin data8.gz
-gunzip data8.gz 
+file data7.bin
+mv data7.bin data7.bz
+bunzip2 data7.bz
 ```
 
 ```shell
 file data8
-cat data8
+mv data8 data8.tar
+tar -xvf data8.tar
 ```
+
+```shell
+file data9.bin
+mv data9.bin data9.gz
+gunzip data9.gz 
+```
+
+```shell
+file data10
+cat data10
+```
+
+**finally...**
 
 ```text
 FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ```
+

@@ -1,34 +1,42 @@
------------------------------------------------------------------------------------------------------------------
-"
-There is a setuid binary in the homedirectory that does the following: 
-it makes a connection to localhost on the port you specify as a commandline argument. 
-It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). 
-If the password is correct, it will transmit the password for the next level (bandit21).
-"
------------------------------------------------------------------------------------------------------------------
+# Bandit Level 20
 
+> There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
 
-sshpass -f "sshpass" ssh bandit20@bandit.labs.overthewire.org -p 2220
+## Solution
 
+```shell
+sshpass -f "ssh_pass" ssh bandit20@bandit.labs.overthewire.org -p 2220
+```
+
+```shell
 ls -lah
+```
 
+```shell
 ./suconnect
+```
 
->> ---
+```text
 Usage: ./suconnect <portnumber>
 This program will connect to the given port on localhost using TCP. 
 If it receives the correct password from the other side, the next password is transmitted back.
->> ---
+```
 
-# here we need to use netcat to creat a listening server, to receive the password from the script
+**here we need to use netcat to creat a listening server, to receive the password from the script.
+we use '&' to make the process run in the background, so we can run another commands**
 
-# we use '&' to make the process run in the background, so we can run another commands
-
+```shell
 echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l 1234 &
+```
 
+```shell
 ./suconnect 1234
+```
 
->> Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
->> Password matches, sending next password
+```text
+Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+Password matches, sending next password
 
->> EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+```
+
