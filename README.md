@@ -1,4 +1,4 @@
-# OverTheWire: Wargame Writeups
+# OverTheWire: Wargames Writeups
 
 A structured collection of writeups, notes, and solutions for the **OverTheWire: Bandit** wargame. This repository serves as a personal documentation vault to track my progress, commands learned, and methodologies used to solve each level.
 
